@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
@@ -11,7 +11,6 @@ import Header from './components/header/Header';
 import SignInAndSignUpPage from "./pages/signin-and-signup-page/SignInAndSignUpPage";
 import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 import {setCurrentUser} from "./redux/user/userActions";
-
 
 class App extends React.Component {
 
@@ -57,9 +56,13 @@ class App extends React.Component {
 }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+})
+
 const mapDispatchToProps = (dispatch) => ({
     setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
