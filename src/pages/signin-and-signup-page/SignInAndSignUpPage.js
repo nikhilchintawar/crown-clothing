@@ -1,5 +1,6 @@
 import React from 'react';
 import SignIn from '../../components/signin/SignIn';
+import SignUp from '../../components/signup/SignUp';
 
 import "./signin-and-signup-page.styles.scss";
 
@@ -8,6 +9,7 @@ const SignInAndSignUpPage = () => {
         <div>
             <div className='sign-in-and-sign-up'>
                 <SignIn />
+                <SignUp />
             </div>
         </div>
     );
