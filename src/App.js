@@ -1,7 +1,6 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 
 
 import './App.css';
