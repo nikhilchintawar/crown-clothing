@@ -7,19 +7,16 @@ import { connect } from 'react-redux';
 import { fetchCollectionsStart } from '../../redux/shop/shopActions';
 import CollectionsOverviewContainer from '../../components/collections-overview/CollectionOverviewContainer';
 import CollectionPageContainer from "./../../pages/collection/CollectionPageContainer";
+import { useEffect } from 'react';
 // import { fetchCollectionsStart } from '../../redux/shop/shopSagas';
 
 
 
-class ShopPage extends React.Component{
-
-    componentDidMount(){
-       const {fetchCollectionsStart} = this.props;
-       fetchCollectionsStart();
-    }
-        
-    render(){
-        const {match} = this.props;
+const ShopPage = ({fetchCollectionsStart, match}) => {
+    
+    useEffect(() => {
+        fetchCollectionsStart();
+    }, [fetchCollectionsStart])
 
         return (
         <div className="shop-page">
@@ -34,7 +31,7 @@ class ShopPage extends React.Component{
             />
         </div>
     )}
-};
+
 
 const mapDispatchToProps = dispatch => ({
     fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
