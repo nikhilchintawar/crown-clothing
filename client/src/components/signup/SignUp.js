@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 import FormInput from '../form-input/FormInput';
 import CustomButton from '../custom-button/CustomButton';
-import "./signup.styles.scss";
 import { signUpStart } from '../../redux/user/userActions';
+
+import { SignUpPageContainer, SignUpPageTitle } from './signup.styles';
 
 class SignUp extends React.Component {
     constructor() {
@@ -42,8 +43,8 @@ class SignUp extends React.Component {
     render() {
       const { displayName, email, password, confirmPassword } = this.state;
       return (
-        <div className='sign-up'>
-          <h2 className='title'>I do not have a account</h2>
+        <SignUpPageContainer>
+          <SignUpPageTitle>I do not have a account</SignUpPageTitle>
           <span>Sign up with your email and password</span>
           <form className='sign-up-form' onSubmit={this.handleSubmit}>
             <FormInput
@@ -80,7 +81,7 @@ class SignUp extends React.Component {
             />
             <CustomButton type='submit'>SIGN UP</CustomButton>
           </form>
-        </div>
+        </SignUpPageContainer>
       );
     }
   }

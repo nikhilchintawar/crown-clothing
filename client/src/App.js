@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import './App.css';
+
 import HomePage from './pages/homepage/Homepage';
 import ShopPage from './pages/shop/ShopPage';
 import Header from './components/header/Header';
@@ -12,6 +12,8 @@ import {checkUserSession} from "./redux/user/userActions";
 import { selectCurrentUser } from './redux/user/userSelector';
 import CheckoutPage from './pages/checkout/CheckoutPage';
 
+import {GlobalStyle} from "./global.styles";
+import ErrorBoundary from './components/error-boundry/ErrorBoundary';
 
 const App = ({currentUser, checkUserSession}) => {
 
@@ -20,7 +22,8 @@ const App = ({currentUser, checkUserSession}) => {
   }, [checkUserSession])
 
   return (
-    <div className="App">
+    <div>
+    <GlobalStyle />
     <Header />
     <Switch>
       <Route exact path="/" component={HomePage} />
