@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {CollectionItemContainer,CollectionFooterContainer, BackgroundImage, NameContainer, PriceContainer, AddButton} from "./collection-item.styles";
-import CustomButton from '../custom-button/CustomButton';
 import { addItem } from '../../redux/cart/cartActions';
 
 const CollectionItem = ({item, addItem}) => {
