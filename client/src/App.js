@@ -14,6 +14,7 @@ import CheckoutPage from './pages/checkout/CheckoutPage';
 
 import {GlobalStyle} from "./global.styles";
 import ErrorBoundary from './components/error-boundry/ErrorBoundary';
+import PageNotFound from './components/page-not-found/PageNotFound';
 
 const App = ({currentUser, checkUserSession}) => {
 
@@ -25,12 +26,16 @@ const App = ({currentUser, checkUserSession}) => {
     <div>
     <GlobalStyle />
     <Header />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/shop" component={ShopPage} />
-      <Route path="/checkout" component={CheckoutPage} />
-      <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : <SignInAndSignUpPage />} />      
-    </Switch>  
+      <Switch>
+      <ErrorBoundary>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route path="/checkout" component={CheckoutPage} />
+        <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : <SignInAndSignUpPage />} />   
+
+        <Route path="*" component={PageNotFound} />   
+      </ErrorBoundary>
+      </Switch>  
     </div>
   );
 }

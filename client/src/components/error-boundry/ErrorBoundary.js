@@ -1,5 +1,5 @@
 import React from 'react';
-import {ErrorImageContainer, ErrorImageOverlay, ErrorImageText} from "./error-boundary.styles";
+import PageNotFound from '../page-not-found/PageNotFound';
 
 class ErrorBoundary extends React.Component {
     constructor(){
@@ -22,10 +22,7 @@ class ErrorBoundary extends React.Component {
     render(){
         if (this.state.hasErrored) {
             return (
-                <ErrorImageOverlay>
-                    <ErrorImageContainer imageUrl="https://i.imgur.com/Q2BAOd2.png" />
-                    <ErrorImageText>Sorry this page is broken</ErrorImageText>
-                </ErrorImageOverlay>
+                <PageNotFound />
             )
         }
 
